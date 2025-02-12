@@ -1,28 +1,197 @@
 body {
+    
     background-color: lightblue;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 100%; /* Ensures the body takes the full viewport width */
+    height: 50vh; /* Ensures the body takes the full viewport height */
+    display: flex; /* Enables flexbox on the body */
+    justify-content: center; /* Centers content horizontally */
+    align-items: flex-start; /* Aligns content to the top */
+    overflow: hidden;
+    margin: 0;
+}
+
+#heart1{
+    width: 100px;
+    height: 150px;
+    background-color: red;
+    border-radius: 50px 50px 0px 0px;
+    position: absolute;
+    top: 65px;
+    left: 70px;
+    rotate: -45deg;
+    animation: heart1 6s ease forwards;
+}
+
+.heart2{
+    width: 100px;
+    height: 158px;
+    background-color: red;
+    border-radius: 50px 50px 0px 0px;
+    position: absolute;
+    right: 70px;
+    top: 65px;  /* Vertically center it */
+    rotate: 45deg;
+    animation: heart2 6s ease forwards;
+
+}
+
+#turtle {
+    opacity: 0%;
+    position: absolute;
+    border-radius: 8px;
+    top: 70%;
+    left: 70px;
+    width: 150px;
+    transform: rotate(-20deg);
+    animation: text 8s forwards 8s;
+}
+
+#video1 {
+    opacity: 0%;
+    position: absolute;
+    top: 18%;
+    left: 43%;
+    animation: text 8s forwards 2s;
+}
+#video{
+    width: 36%;
 }
 
 #container {
-    background-color: darkseagreen;
+    background-color: lightgreen;
     min-width: 15%;
     min-height: 20%;
     box-shadow: 5px 5px 5px 2px black;
-    border-radius: 50px 50px 50px 50px;
+    border-radius: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 20px;
-    animation-name: example;
-    animation-duration: 8s;
+    animation: example 8s infinite;
+}
+
+#container2 {
+    opacity: 0%;
+    position: absolute;
+    width: 15%;
+    height: 350px;
+    left: 150px;
+    top: 75px;
+    transform: rotate(-18deg);
+    animation: text 8s forwards 12s;
+    object-fit: fill;
+}
+
+#picOne{
+    /*
+    opacity: 0%;
+    top: 70px;
+    left: 100px;
+    position: absolute;
+    border: 1px solid white;
+    border-radius: 8px;
+    padding: 5px;
+    width: 200px;
+    height: 300px;
+    object-fit: fill;
+    transform: rotate(-20deg);
+    animation: text 6s forwards 12s;
+    */
+    display: block;
+    width: 100%;
+    height: 350px;
+    border-radius: 8px;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #008CBA;
+    overflow: hidden;
+    width: 0;
+    height: 100%;
+    transition: .8s ease-out;
+    border-radius: 8px;
+    align-content: center;
+}
+
+#container2:hover .overlay {
+    width: 100%;
+}
+
+.textOne {
+    white-space: nowrap;
+    color: white;
+    font-size: 20px;
+    font-style: italic;
+    position: absolute;
+    overflow: hidden;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    color: white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+#container3 {
+   opacity: 0%;
+    position: absolute;
+    width: 20%;
+    height: 350px;
+    right: 150px;
+    top: 75px;
+    transform: rotate(18deg);
+    animation: text 8s forwards 16s;
+    object-fit: fill;
+}
+
+#picTwo {
+    display: block;
+    width: 100%;
+    height: 350px;
+    border-radius: 8px;
+}
+
+.overlay2 {
+    position: absolute;
+    bottom: 0;
+    left: 100%;
+    right: 0;
+    background-color: #008CBA;
+    overflow: hidden;
+    width: 0;
+    height: 100%;
+    transition: .8s ease-out;
+    border-radius: 8px;
+    align-content: center;
+}
+
+#container3:hover .overlay2 {
+    width: 100%;
+    left: 0;
+}
+
+.textTwo {
+    white-space: nowrap;
+    font-size: 20px;
+    font-style: italic;
+    position: absolute;
+    overflow: hidden;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    color: white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 #myText {
     cursor: pointer;
+    
 }
 
 #likeText:hover {
@@ -38,6 +207,18 @@ body {
     z-index: 0;
 }
 
+#labelText {
+    opacity: 0%;
+    color: white;
+    position: absolute;
+    top: 78%;
+    left: 46%;
+    animation: text 8s forwards 8s;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+
+
 @keyframes heartMove {
     0% {
         transform: translateY(-10vh);
@@ -45,14 +226,64 @@ body {
     100% {
         transform: translateY(110vh);
     }
-    
-    
 }
+
 @keyframes example {
-    0%   {background-color: darkseagreen;}
-  25%  {background-color: pink;}
-  50%  {background-color: blue;}
-  100% {background-color: green;}
+    0%   {
+        background-color: lightgreen;
+    }
+    25%  {
+        background-color: lightpink;
+    }
+    50%  {
+        background-color: cornflowerblue;
+    }
+    100% {
+        background-color: lightgreen;
+    }
 }
 
+@keyframes heart1 {
+    0%   {
+        background-color: hsl(0, 100%, 90%);
+        left: 70px;
+        top: 0px;
+    }
+    50%  {
+        background-color: hsl(0, 100%, 70%);
+        left: 70px;
+        top: 70%;
+    }
+    100% {
+        background-color: hsl(0, 100%, 50%);
+        left: 45%;
+        top: 70%;
+    }
+}
 
+@keyframes heart2 {
+    0%   {
+        background-color: hsl(0, 100%, 90%);
+        right: 70px;
+        top: 0px;
+    }
+    50%  {
+        background-color: hsl(0, 100%, 70%);
+        right: 70px;
+        top: 70%;
+    }
+    100% {
+        background-color: hsl(0, 100%, 50%);
+        right: 45%;
+        top: 70%;
+    }
+}
+
+@keyframes text {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
